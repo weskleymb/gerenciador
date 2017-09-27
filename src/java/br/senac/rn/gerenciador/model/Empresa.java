@@ -5,8 +5,7 @@ public class Empresa {
     private int id;
     private String nome;
 
-    public Empresa() {
-    }
+    public Empresa() {}
 
     public Empresa(String nome) {
         this.nome = nome;
