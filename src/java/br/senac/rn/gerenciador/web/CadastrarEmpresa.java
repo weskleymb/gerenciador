@@ -4,6 +4,7 @@ import br.senac.rn.gerenciador.dao.EmpresaDAO;
 import br.senac.rn.gerenciador.model.Empresa;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,13 +16,12 @@ public class CadastrarEmpresa extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest requisicao, HttpServletResponse resposta) throws ServletException, IOException {
-        PrintWriter writer = resposta.getWriter();
         String nome = requisicao.getParameter("nome_empresa");
         Empresa empresa = new Empresa(nome);
-        writer.println("<html><body>");
         new EmpresaDAO().adiciona(empresa);
-        writer.println("Empresa " + empresa.getNome() + " adicionada!");
-        writer.println("</body></html>");
+        requisicao.setAttribute("empresa", empresa);
+        RequestDispatcher dispatcher = requisicao.getRequestDispatcher("/WEB-INF/sucesso.jsp");
+        dispatcher.forward(requisicao, resposta);
     }
     
 }

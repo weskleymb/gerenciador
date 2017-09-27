@@ -7,18 +7,26 @@
     <body>
         <div>Bem vindo ao gerenciador de empresas!!!</div>
         <div>
-            <form action="busca" method="post">
-                <label>Sua empresa: </label>
-                <input type="text" name="filtro" />
-                <input type="submit" value="Buscar" />
-            </form>
+            <fieldset>
+                <legend>Buscar Empresa</legend>
+                <form action="busca" method="post">
+                    <label>Sua empresa: </label>
+                    <input type="text" name="filtro" />
+                    <input type="submit" value="Buscar" />
+                </form>
+            </fieldset>
+
         </div>
         <div>
-            <form action="novaEmpresa" method="post">
-                <label>Nome da Empresa</label>
-                <input type="text" name="nome_empresa" />
-                <input type="submit" value="Cadastrar" />
-            </form>
+            <fieldset>
+                <legend>Cadastrar Empresa</legend>
+                <form action="novaEmpresa" method="post">
+                    <label>Nome da Empresa</label>
+                    <input type="text" name="nome_empresa" />
+                    <input type="submit" value="Cadastrar" />
+                </form>
+            </fieldset>
+
         </div>
     </body>
 </html>
